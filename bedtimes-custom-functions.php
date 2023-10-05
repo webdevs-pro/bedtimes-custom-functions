@@ -2,7 +2,7 @@
 /**
  * Plugin Name: TheBedTimes Custom Functions
  * Plugin URI: https://github.com/webdevs-pro/bedtimes-custom-functions
- * Version: 0.1.1
+ * Version: 0.2.0
  * Description: A place for custom functions for thebedtimes.co website
  * Author: Alex Ishchenko
  * Author URI: https://website.cv.ua
@@ -25,7 +25,7 @@ final class TBT_Plugin {
 		if ( ! function_exists( 'get_home_path' ) ) {
 			require_once ( ABSPATH . 'wp-admin/includes/file.php' );
 		}
-		define( 'TBT_VERSION', get_plugin_data( __FILE__ )['Version'] );
+		define( 'TBT_PLUGIN_VERSION', get_plugin_data( __FILE__ )['Version'] );
 		// define( 'TBT_HOME_PATH', get_home_path() );
 		define( 'TBT_HOME_PATH', ABSPATH );
 		define( 'TBT_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
@@ -35,11 +35,11 @@ final class TBT_Plugin {
 	}
 
 	function include_files() {
-		require_once ( TBT_PLUGIN_DIR . '/inc/vendor/autoload.php');
+		require_once ( TBT_PLUGIN_DIR . '/inc/vendor/autoload.php' );
+		require_once ( TBT_PLUGIN_DIR . '/inc/plugin.php' );
 	}
 
 	function init_plugin_update_checker() {
-
 		$UpdateChecker = PucFactory::buildUpdateChecker(
 			'https://github.com/webdevs-pro/bedtimes-custom-functions',
 			__FILE__,
