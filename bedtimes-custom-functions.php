@@ -2,7 +2,7 @@
 /**
  * Plugin Name: TheBedTimes Custom Functions
  * Plugin URI: https://github.com/webdevs-pro/bedtimes-custom-functions
- * Version: 0.1.0
+ * Version: 0.1.1
  * Description: A place for custom functions for thebedtimes.co website
  * Author: Alex Ishchenko
  * Author URI: https://website.cv.ua
@@ -40,14 +40,14 @@ final class TBT_Plugin {
 
 	function init_plugin_update_checker() {
 
-		$myUpdateChecker = PucFactory::buildUpdateChecker(
+		$UpdateChecker = PucFactory::buildUpdateChecker(
 			'https://github.com/webdevs-pro/bedtimes-custom-functions',
 			__FILE__,
 			'bedtimes-custom-functions'
 		);
 		
 		//Set the branch that contains the stable release.
-		$myUpdateChecker->setBranch( 'main' );
+		$UpdateChecker->setBranch( 'main' );
 	}
 
 }
