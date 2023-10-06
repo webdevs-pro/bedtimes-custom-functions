@@ -258,11 +258,231 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 		$this->end_controls_section();
 
 
-		$this->start_controls_section( 'section_style', [
-			'label' => 'Style',
+		// General Style Section
+		$this->start_controls_section( 'section_general_style', [
+			'label' => 'General Style',
 			'tab'   => Controls_Manager::TAB_STYLE,
 		] );
 
+		// Table heading
+		$this->add_control( 'table_heading_styles_heading', [
+			'label' => 'Table Heading',
+			'type'  => Controls_Manager::HEADING,
+		] );
+
+		$this->add_control( 'table_heading_color', [
+			'label'     => 'Color',
+			'type'      => Controls_Manager::COLOR,
+			'global'    => [
+				'default' => Global_Colors::COLOR_PRIMARY,
+			],
+			'selectors' => [
+				'{{WRAPPER}} .tbt-table-heading' => 'color: {{VALUE}};',
+			],
+		] );
+
+		$this->add_group_control( Group_Control_Typography::get_type(), [
+			'name'     => 'table_heading_typography',
+			'label'    => 'Typography',
+			'global'   => [
+				'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+			],
+			'selector' => '{{WRAPPER}} .tbt-table-heading',
+		] );
+
+		$this->add_control( 'table_heading_background_color', [
+			'label'     => 'Background Color',
+			'type'      => Controls_Manager::COLOR,
+			'default'	=> '#F0EBE1',
+			'selectors' => [
+				'{{WRAPPER}} .tbt-table-heading' => 'background-color: {{VALUE}};',
+			],
+		] );
+
+		$this->add_responsive_control( 'table_heading_padding', [
+			'label'      => 'Padding',
+			'type'       => Controls_Manager::DIMENSIONS,
+			'size_units' => [ 'px', '%', 'em' ],
+			'default'    => [
+				'top'      => '10',
+				'bottom'   => '10',
+				'left'     => '10',
+				'right'    => '10',
+				'unit'     => 'px',
+				'isLinked' => false,
+			],
+			'selectors'  => [
+				'{{WRAPPER}} .tbt-table-heading' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+			],
+		] );
+
+		// Plans
+		$this->add_control( 'plans_style_heading', [
+			'label' => '<br><br>Plans',
+			'type'  => Controls_Manager::HEADING,
+		] );
+
+		$this->add_control( 'plan_background_color', [
+			'label'     => 'Background Color',
+			'type'      => Controls_Manager::COLOR,
+			'default'	=> '#f2e1cc',
+			'selectors' => [
+				'{{WRAPPER}} .normal-plan' => 'background-color: {{VALUE}};',
+			],
+		] );
+
+		$this->add_control( 'featured_plan_background_color', [
+			'label'     => 'Featured Background Color',
+			'type'      => Controls_Manager::COLOR,
+			'default'	=> '#FCBB76',
+			'selectors' => [
+				'{{WRAPPER}} .featured-plan' => 'background-color: {{VALUE}};',
+			],
+		] );
+
+		$this->add_responsive_control( 'plan_padding', [
+			'label'      => 'Padding',
+			'type'       => Controls_Manager::DIMENSIONS,
+			'size_units' => [ 'px', '%', 'em' ],
+			'default'    => [
+				'top'      => '10',
+				'bottom'   => '10',
+				'left'     => '10',
+				'right'    => '10',
+				'unit'     => 'px',
+				'isLinked' => false,
+			],
+			'selectors'  => [
+				'{{WRAPPER}} .normal-plan' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .featured-plan' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+			],
+		] );
+
+		$this->end_controls_section();
+
+
+		// Plan Header Style Section
+		$this->start_controls_section( 'section_plan_header_style', [
+			'label' => 'Plan Header',
+			'tab'   => Controls_Manager::TAB_STYLE,
+		] );
+
+		// Plan badge
+		$this->add_control( 'plan_header_badge_styles_heading', [
+			'label' => 'Badge',
+			'type'  => Controls_Manager::HEADING,
+		] );
+
+		$this->add_control( 'header_badge_color', [
+			'label'     => 'Color',
+			'type'      => Controls_Manager::COLOR,
+			'global'    => [
+				'default' => Global_Colors::COLOR_PRIMARY,
+			],
+			'selectors' => [
+				'{{WRAPPER}} .tbt-plan-badge' => 'color: {{VALUE}};',
+			],
+		] );
+
+		$this->add_group_control( Group_Control_Typography::get_type(), [
+			'name'     => 'header_badge_typography',
+			'label'    => 'Typography',
+			'global'   => [
+				'default' => Global_Typography::TYPOGRAPHY_TEXT,
+			],
+			'selector' => '{{WRAPPER}} .tbt-plan-badge',
+		] );
+
+
+
+		// Plan title
+		$this->add_control( 'plan_header_title_styles_heading', [
+			'label' => '<br><br>Title',
+			'type'  => Controls_Manager::HEADING,
+		] );
+
+		$this->add_control( 'plan_title_color', [
+			'label'     => 'Color',
+			'type'      => Controls_Manager::COLOR,
+			'global'    => [
+				'default' => Global_Colors::COLOR_PRIMARY,
+			],
+			'selectors' => [
+				'{{WRAPPER}} .tbt-plan-title' => 'color: {{VALUE}};',
+			],
+		] );
+
+		$this->add_group_control( Group_Control_Typography::get_type(), [
+			'name'     => 'plan_title_typography',
+			'label'    => 'Typography',
+			'global'   => [
+				'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+			],
+			'selector' => '{{WRAPPER}} .tbt-plan-title',
+		] );
+
+		$this->end_controls_section();
+
+
+		// Plan Price Style Section
+		$this->start_controls_section( 'section_plan_price_style', [
+			'label' => 'Plan Price',
+			'tab'   => Controls_Manager::TAB_STYLE,
+		] );
+
+		// Plan price
+		$this->add_control( 'plan_price_styles_heading', [
+			'label' => 'Price',
+			'type'  => Controls_Manager::HEADING,
+		] );
+
+		$this->add_control( 'price_color', [
+			'label'     => 'Color',
+			'type'      => Controls_Manager::COLOR,
+			'global'    => [
+				'default' => Global_Colors::COLOR_PRIMARY,
+			],
+			'selectors' => [
+				'{{WRAPPER}} .tbt-plan-price-amount' => 'color: {{VALUE}};',
+			],
+		] );
+
+		$this->add_group_control( Group_Control_Typography::get_type(), [
+			'name'     => 'price_typography',
+			'label'    => 'Typography',
+			'global'   => [
+				'default' => Global_Typography::TYPOGRAPHY_TEXT,
+			],
+			'selector' => '{{WRAPPER}} .tbt-plan-price-amount',
+		] );
+
+
+
+		// Plan period
+		$this->add_control( 'plan_period_heading', [
+			'label' => '<br><br>Period',
+			'type'  => Controls_Manager::HEADING,
+		] );
+
+		$this->add_control( 'period_color', [
+			'label'     => 'Color',
+			'type'      => Controls_Manager::COLOR,
+			'global'    => [
+				'default' => Global_Colors::COLOR_PRIMARY,
+			],
+			'selectors' => [
+				'{{WRAPPER}} .tbt-plan-price-period' => 'color: {{VALUE}};',
+			],
+		] );
+
+		$this->add_group_control( Group_Control_Typography::get_type(), [
+			'name'     => 'period_typography',
+			'label'    => 'Typography',
+			'global'   => [
+				'default' => Global_Typography::TYPOGRAPHY_TEXT,
+			],
+			'selector' => '{{WRAPPER}} .tbt-plan-price-period',
+		] );
 
 		$this->end_controls_section();
 	}
@@ -274,49 +494,34 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 		// Desktop
 		echo '<div class="tbt-pricing-table-desktop">';
 
-			// Plan badgess row
-			echo '<div></div>';
+			// Plan header row
+			echo '<div class="tbt-table-heading"></div>';
 			for ( $i = 0; $i <= 2; $i++ ) {
-				$active_class = $settings['plans'][ $i ]['featured'] === 'yes' ? ' featured-plan' : '';
+				$active_class = $settings['plans'][ $i ]['featured'] === 'yes' ? ' featured-plan' : ' normal-plan';
 				$badge        = esc_html( $settings['plans'][ $i ]['badge'] ?? '' );
-
-				printf(
-					'<div class="tbt-plan-badge tbt-plan-%1$d%2$s">%3$s</div>',
-					$i + 1,
-					$active_class,
-					$badge
-				);
-			}
-
-
-			// Plan titles row
-			echo '<div></div>';
-			for ( $i = 0; $i <= 2; $i++ ) {
-				$active_class = $settings['plans'][ $i ]['featured'] === 'yes' ? ' featured-plan' : '';
 				$title        = esc_html( $settings['plans'][ $i ]['title'] ?? '' );
-
 				printf(
-					'<div class="tbt-plan-title tbt-plan-%1$d%2$s">%3$s</div>',
+					'<div class="tbt-plan-header tbt-plan-%1$d%2$s">',
 					$i + 1,
-					$active_class,
-					$title
+					$active_class
 				);
+					echo '<div class="tbt-plan-badge">' . $badge . '</div>';
+					echo '<div class="tbt-plan-title">' . $title . '</div>';
+				echo '</div>';
 			}
-
-
 			?>
 
 			<!-- Prices -->
-			<div></div>
-			<div class="tbt-plan-price tbt-plan-1<?php $settings['plans'][0]['featured'] === 'yes' ? ' featured-plan' : ''; ?>">
+			<div class="tbt-table-heading"></div>
+			<div class="tbt-plan-price tbt-plan-1<?php echo $settings['plans'][0]['featured'] === 'yes' ? ' featured-plan' : ' normal-plan'; ?>">
 				<span class="tbt-plan-price-amount"><?php echo $settings['plans'][0]['price'] ?? ''; ?></span><br>
 				<span class="tbt-plan-price-period"><?php echo $settings['plans'][0]['period'] ?? ''; ?></span>
 			</div>
-			<div class="tbt-plan-price tbt-plan-2<?php $settings['plans'][1]['featured'] === 'yes' ? ' featured-plan' : ''; ?>">
+			<div class="tbt-plan-price tbt-plan-2<?php echo $settings['plans'][1]['featured'] === 'yes' ? ' featured-plan' : ' normal-plan'; ?>">
 				<span class="tbt-plan-price-amount"><?php echo $settings['plans'][1]['price'] ?? ''; ?></span><br>
 				<span class="tbt-plan-price-period"><?php echo $settings['plans'][1]['period'] ?? ''; ?></span>
 			</div>
-			<div class="tbt-plan-price tbt-plan-3<?php $settings['plans'][2]['featured'] === 'yes' ? ' featured-plan' : ''; ?>">
+			<div class="tbt-plan-price tbt-plan-3<?php echo $settings['plans'][2]['featured'] === 'yes' ? ' featured-plan' : ' normal-plan'; ?>">
 				<span class="tbt-plan-price-amount"><?php echo $settings['plans'][2]['price'] ?? ''; ?></span><br>
 				<span class="tbt-plan-price-period"><?php echo $settings['plans'][2]['period'] ?? ''; ?></span>
 			</div>
@@ -325,10 +530,10 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 			<?php
 			foreach ( $features as $feature ) {
 				// Heading
-				echo '<div class="tbt-plan-feature-heading">' . $feature['heading'] . '</div>';
+				echo '<div class="tbt-table-heading tbt-plan-feature-heading">' . $feature['heading'] . '</div>';
 
 				// Plan 1
-				echo '<div class="tbt-plan-feature">';
+				echo '<div class="tbt-plan-feature plan-1' . ( $settings['plans'][0]['featured'] === 'yes' ? ' featured-plan' : ' normal-plan' ) . '">';
 					echo '<div class="tbt-plan-feature-icon">';
 						\Elementor\Icons_Manager::render_icon( $feature['item_1_icon'], [ 'aria-hidden' => 'true' ] );
 					echo '</div>';
@@ -336,7 +541,7 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 				echo '</div>';
 
 				// Plan 2
-				echo '<div class="tbt-plan-feature">';
+				echo '<div class="tbt-plan-feature plan-2' . ( $settings['plans'][1]['featured'] === 'yes' ? ' featured-plan' : ' normal-plan' ) . '">';
 					echo '<div class="tbt-plan-feature-icon">';
 						\Elementor\Icons_Manager::render_icon( $feature['item_2_icon'], [ 'aria-hidden' => 'true' ] );
 					echo '</div>';
@@ -344,7 +549,7 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 				echo '</div>';
 
 				// Plan 3
-				echo '<div class="tbt-plan-feature">';
+				echo '<div class="tbt-plan-feature plan-3' . ( $settings['plans'][2]['featured'] === 'yes' ? ' featured-plan' : ' normal-plan' ) . '">';
 					echo '<div class="tbt-plan-feature-icon">';
 						\Elementor\Icons_Manager::render_icon( $feature['item_3_icon'], [ 'aria-hidden' => 'true' ] );
 					echo '</div>';
@@ -354,16 +559,16 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 			?>
 
 			<!-- Footer -->
-			<div></div>
-			<div class="tbt-plan-footer tbt-plan-1<?php $settings['plans'][0]['featured'] === 'yes' ? ' featured-plan' : ''; ?>">
+			<div class="tbt-table-heading"></div>
+			<div class="tbt-plan-footer tbt-plan-1<?php echo $settings['plans'][0]['featured'] === 'yes' ? ' featured-plan' : ' normal-plan'; ?>">
 				<a href="<?php echo $settings['plans'][0]['button_link']['url'] ?? ''; ?>" class="tbt-plan-button elementor-button"><?php echo $settings['plans'][0]['button_label'] ?? ''; ?></a>
 				<div class="tbt-plan-additional-info"><?php echo $settings['plans'][0]['additional_info'] ?? ''; ?></div>
 			</div>
-			<div class="tbt-plan-footer tbt-plan-2<?php $settings['plans'][1]['featured'] === 'yes' ? ' featured-plan' : ''; ?>">
+			<div class="tbt-plan-footer tbt-plan-2<?php echo $settings['plans'][1]['featured'] === 'yes' ? ' featured-plan' : ' normal-plan'; ?>">
 				<a href="<?php echo $settings['plans'][1]['button_link']['url'] ?? ''; ?>" class="tbt-plan-button elementor-button"><?php echo $settings['plans'][1]['button_label'] ?? ''; ?></a>
 				<div class="tbt-plan-additional-info"><?php echo $settings['plans'][1]['additional_info'] ?? ''; ?></div>
 			</div>
-			<div class="tbt-plan-footer tbt-plan-3<?php $settings['plans'][2]['featured'] === 'yes' ? ' featured-plan' : ''; ?>">
+			<div class="tbt-plan-footer tbt-plan-3<?php echo $settings['plans'][2]['featured'] === 'yes' ? ' featured-plan' : ' normal-plan'; ?>">
 				<a href="<?php echo $settings['plans'][2]['button_link']['url'] ?? ''; ?>" class="tbt-plan-button elementor-button"><?php echo $settings['plans'][2]['button_label'] ?? ''; ?></a>
 				<div class="tbt-plan-additional-info"><?php echo $settings['plans'][2]['additional_info'] ?? ''; ?></div>
 			</div>
@@ -376,7 +581,7 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 		echo '<div class="tbt-pricing-table-mobile">';
 
 			// Plan 1
-			echo '<div class="tbt-plan tbt-plan-1' . ( $settings['plans'][0]['featured'] === 'yes' ? ' featured-plan' : '' ) . '">';
+			echo '<div class="tbt-plan tbt-plan-1' . ( $settings['plans'][0]['featured'] === 'yes' ? ' featured-plan' : ' normal-plan' ) . '">';
 				echo '<div class="tbt-plan-header">';
 					echo '<div class="tbt-plan-badge">' . $settings['plans'][0]['badge'] . '</div>';
 					echo '<div class="tbt-plan-title">' . $settings['plans'][0]['title'] . '</div>';
@@ -401,7 +606,7 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 			echo '</div>';
 
 			// Plan 2
-			echo '<div class="tbt-plan tbt-plan-2' . ( $settings['plans'][1]['featured'] === 'yes' ? ' featured-plan' : '' ) . '">';
+			echo '<div class="tbt-plan tbt-plan-2' . ( $settings['plans'][1]['featured'] === 'yes' ? ' featured-plan' : ' normal-plan' ) . '">';
 				echo '<div class="tbt-plan-header">';
 					echo '<div class="tbt-plan-badge">' . $settings['plans'][1]['badge'] . '</div>';
 					echo '<div class="tbt-plan-title">' . $settings['plans'][1]['title'] . '</div>';
@@ -426,7 +631,7 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 			echo '</div>';
 
 			// Plan 3
-			echo '<div class="tbt-plan tbt-plan-2' . ( $settings['plans'][2]['featured'] === 'yes' ? ' featured-plan' : '' ) . '">';
+			echo '<div class="tbt-plan tbt-plan-2' . ( $settings['plans'][2]['featured'] === 'yes' ? ' featured-plan' : ' normal-plan' ) . '">';
 				echo '<div class="tbt-plan-header">';
 					echo '<div class="tbt-plan-badge">' . $settings['plans'][2]['badge'] . '</div>';
 					echo '<div class="tbt-plan-title">' . $settings['plans'][2]['title'] . '</div>';
