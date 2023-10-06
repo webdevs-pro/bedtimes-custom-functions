@@ -1,0 +1,4 @@
+.tbt-pricing-table-desktop {
+   display: grid;
+   grid-template-columns: 1fr 26.3% 26.4% 26.3%;
+}

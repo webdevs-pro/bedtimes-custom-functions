@@ -13,9 +13,9 @@ class TBT_Elementor {
    public function __construct() {
       add_action( 'plugins_loaded', array( $this, 'init' ) );
       add_action( 'elementor/elements/categories_registered', array( $this, 'register_widgets_categories' ) );
-      add_action( 'elementor/widgets/register', array( $this, 'on_widgets_registered' ) );
 		add_action( 'elementor/frontend/after_register_scripts', array( $this, 'register_frontend_scripts' ) );
-		add_action( 'elementor/frontend/after_enqueue_styles', array( $this, 'register_frontend_styles' ) );
+		add_action( 'elementor/frontend/after_register_styles', array( $this, 'register_frontend_styles' ) );
+      add_action( 'elementor/widgets/register', array( $this, 'on_widgets_registered' ) );
    }
 
    public function init() {
@@ -154,7 +154,6 @@ class TBT_Elementor {
     */
    public function register_frontend_styles() {
       wp_register_style( 'tbt-pricing-table', TBT_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/pricing-table.css', array(), TBT_PLUGIN_VERSION ); 
-
    }
 }
 new TBT_Elementor();
