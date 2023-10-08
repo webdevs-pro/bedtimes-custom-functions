@@ -47,6 +47,9 @@
    align-items: center;
    /* justify-content: flex-end; */
 }
+.tbt-plan-feature-text {
+   text-align: center;
+}
 .tbt-features-divider {
    grid-column: 1 / -1;
    position: relative;
