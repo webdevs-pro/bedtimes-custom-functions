@@ -150,16 +150,19 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 				],
 				'default'      => [
 					[
-						'title' => 'Plan 1',
-						'price' => '$10.00',
+						'title'        => 'Plan 1',
+						'price'        => '$10.00',
+						'button_label' => 'Buy Now',
 					],
 					[
-						'title' => 'Plan 2',
-						'price' => '$20.00',
+						'title'        => 'Plan 2',
+						'price'        => '$20.00',
+						'button_label' => 'Buy Now',
 					],
 					[
-						'title' => 'Plan 3',
-						'price' => '$30.00',
+						'title'        => 'Plan 3',
+						'price'        => '$30.00',
+						'button_label' => 'Buy Now',
 					],
 				],
 				'show_label'   => true,
@@ -337,6 +340,7 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 			'default'	=> '#FCBB76',
 			'selectors' => [
 				'{{WRAPPER}} .featured-plan' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}}' => '--featured-background-color: {{VALUE}};',
 			],
 		] );
 
@@ -464,6 +468,23 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 			'type'  => Controls_Manager::HEADING,
 		] );
 
+		$this->add_responsive_control( 'period_spacing', [
+			'label'     => 'Distance',
+			'type'      => Controls_Manager::SLIDER,
+			'range'     => [
+				'px' => [
+					'max' => 50,
+				],
+			],
+			'default'   => [
+				'unit' => 'px',
+				'size' => '0',
+			],
+			'selectors' => [
+				'{{WRAPPER}} .tbt-plan-price-period' => 'margin-top: {{SIZE}}{{UNIT}};',
+			],
+		] );
+
 		$this->add_control( 'period_color', [
 			'label'     => 'Color',
 			'type'      => Controls_Manager::COLOR,
@@ -482,6 +503,124 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 				'default' => Global_Typography::TYPOGRAPHY_TEXT,
 			],
 			'selector' => '{{WRAPPER}} .tbt-plan-price-period',
+		] );
+
+		$this->end_controls_section();
+
+
+		// Features Style Section
+		$this->start_controls_section( 'section_features_style', [
+			'label' => 'Features',
+			'tab'   => Controls_Manager::TAB_STYLE,
+		] );
+
+		// Divider
+		$this->add_control( 'features_divider_heading', [
+			'label' => 'Divider',
+			'type'  => Controls_Manager::HEADING,
+		] );
+
+		$this->add_control( 'divider_color', [
+			'label'     => 'Color',
+			'type'      => Controls_Manager::COLOR,
+			'global'    => [
+				'default' => Global_Colors::COLOR_PRIMARY,
+			],
+			'selectors' => [
+				'{{WRAPPER}} .tbt-features-divider:after' => 'background-color: {{VALUE}};',
+			],
+		] );
+
+		$this->add_responsive_control( 'divider_height', [
+			'label'     => 'Height',
+			'type'      => \Elementor\Controls_Manager::NUMBER,
+			'min'       => 0,
+			'max'       => 10,
+			'step'      => 1,
+			'default'   => 1,
+			'selectors' => [
+				'{{WRAPPER}} .tbt-features-divider:after' => 'height: {{SIZE}}px;',
+			],
+		] );
+
+		$this->add_responsive_control( 'divider_horizontal_spacing', [
+			'label'     => 'Spacing',
+			'type'      => Controls_Manager::SLIDER,
+			'range'     => [
+				'px' => [
+					'max' => 100,
+				],
+			],
+			'default'   => [
+				'unit' => 'px',
+				'size' => '20',
+			],
+			'selectors' => [
+				'{{WRAPPER}} .tbt-features-divider:after' => 'left: {{SIZE}}{{UNIT}}; right: {{SIZE}}{{UNIT}}',
+			],
+		] );
+
+		// Feature icon
+		$this->add_control( 'feature_icon_heading', [
+			'label' => '<br><br>Icon',
+			'type'  => Controls_Manager::HEADING,
+		] );
+
+		$this->add_responsive_control( 'icon_size', [
+			'label'     => 'Icon Size',
+			'type'      => Controls_Manager::SLIDER,
+			'range'     => [
+				'px' => [
+					'max' => 50,
+				],
+			],
+			'default'   => [
+				'unit' => 'px',
+				'size' => '24',
+			],
+			'selectors' => [
+				'{{WRAPPER}} .tbt-plan-feature-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+				'{{WRAPPER}} .tbt-plan-feature-icon svg' => 'height: {{SIZE}}{{UNIT}};',
+			],
+		] );
+
+		$this->add_control( 'icon_color', [
+			'label'     => 'Icon Color',
+			'type'      => Controls_Manager::COLOR,
+			'global'    => [
+				'default' => Global_Colors::COLOR_PRIMARY,
+			],
+			'selectors' => [
+				'{{WRAPPER}} .tbt-plan-feature-icon' => 'color: {{VALUE}};',
+				'{{WRAPPER}} .tbt-plan-feature-icon svg' => 'fill: color: {{VALUE}}',
+			],
+		] );
+
+
+		// Feature content
+		$this->add_control( 'feature_text_heading', [
+			'label' => '<br><br>Text',
+			'type'  => Controls_Manager::HEADING,
+		] );
+
+		$this->add_control( 'feature_text_color', [
+			'label'     => 'Color',
+			'type'      => Controls_Manager::COLOR,
+			'global'    => [
+				'default' => Global_Colors::COLOR_PRIMARY,
+			],
+			'selectors' => [
+				'{{WRAPPER}} .tbt-plan-feature-text' => 'color: {{VALUE}};',
+			],
+		] );
+
+		$this->add_group_control( Group_Control_Typography::get_type(), [
+			'name'     => 'feature_typography',
+			'label'    => 'Typography',
+			'global'   => [
+				'default' => Global_Typography::TYPOGRAPHY_TEXT,
+			],
+			'selector' => '{{WRAPPER}} .tbt-plan-feature-text',
 		] );
 
 		$this->end_controls_section();
@@ -528,6 +667,7 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 
 			<!-- Features -->
 			<?php
+			echo '<div class="tbt-features-divider"></div>';
 			foreach ( $features as $feature ) {
 				// Heading
 				echo '<div class="tbt-table-heading tbt-plan-feature-heading">' . $feature['heading'] . '</div>';
@@ -555,6 +695,7 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 					echo '</div>';
 					echo '<div class="tbt-plan-feature-text">' . $feature['item_3_text'] . '</div>';
 				echo '</div>';
+				echo '<div class="tbt-features-divider"></div>';
 			}
 			?>
 

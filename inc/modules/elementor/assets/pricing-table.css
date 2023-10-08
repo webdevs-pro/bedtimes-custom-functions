@@ -9,3 +9,37 @@
    align-items: center;
    justify-content: flex-end;
 }
+
+.tbt-plan-header.featured-plan {
+   filter: drop-shadow(0px -15px 0px var(--featured-background-color));
+}
+.tbt-plan-footer.featured-plan {
+   filter: drop-shadow(0px 15px 0px var(--featured-background-color));
+}
+
+
+.tbt-plan-price {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   /* justify-content: flex-end; */
+}
+
+
+
+.tbt-plan-feature {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   /* justify-content: flex-end; */
+}
+.tbt-features-divider {
+   grid-column: 1 / -1;
+   position: relative;
+}
+.tbt-features-divider:after {
+   content: '';
+   position: absolute;
+   transform: translateY(-50%);
+}
+
