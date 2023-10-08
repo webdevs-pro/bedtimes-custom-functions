@@ -280,7 +280,7 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 				'default' => Global_Colors::COLOR_PRIMARY,
 			],
 			'selectors' => [
-				'{{WRAPPER}} .tbt-table-heading' => 'color: {{VALUE}};',
+				'{{WRAPPER}} .tbt-plan-feature-heading' => 'color: {{VALUE}};',
 			],
 		] );
 
@@ -290,7 +290,7 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 			'global'   => [
 				'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
 			],
-			'selector' => '{{WRAPPER}} .tbt-table-heading',
+			'selector' => '{{WRAPPER}} .tbt-plan-feature-heading',
 		] );
 
 		$this->add_control( 'table_heading_background_color', [
