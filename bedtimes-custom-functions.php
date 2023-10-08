@@ -2,7 +2,7 @@
 /**
  * Plugin Name: TheBedTimes Custom Functions
  * Plugin URI: https://github.com/webdevs-pro/bedtimes-custom-functions
- * Version: 1.0.2
+ * Version: 1.0.3
  * Description: A place for custom functions for thebedtimes.co website
  * Author: Alex Ishchenko
  * Author URI: https://website.cv.ua
