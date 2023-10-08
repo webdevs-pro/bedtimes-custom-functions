@@ -822,7 +822,7 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 			],
 		] );
 
-		$this->add_control( 'feature_text_color', [
+		$this->add_control( 'additional_text_color', [
 			'label'     => 'Color',
 			'type'      => Controls_Manager::COLOR,
 			'global'    => [
