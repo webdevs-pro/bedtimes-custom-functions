@@ -560,7 +560,7 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 
 		// Features Style Section
 		$this->start_controls_section( 'section_features_style', [
-			'label' => 'Features',
+			'label' => 'Plan Features',
 			'tab'   => Controls_Manager::TAB_STYLE,
 		] );
 
@@ -695,7 +695,7 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 
 		// Plan Footer Style Section
 		$this->start_controls_section( 'section_footer_style', [
-			'label' => 'Footer',
+			'label' => 'Plan Footer',
 			'tab'   => Controls_Manager::TAB_STYLE,
 		] );
 
@@ -716,91 +716,9 @@ class TBT_Pricing_Table extends Elementor\Widget_Base {
 			],
 		] );
 
-		// Divider
-		$this->add_control( 'features_divider_heading', [
-			'label' => 'Divider',
-			'type'  => Controls_Manager::HEADING,
-		] );
-
-		$this->add_control( 'divider_color', [
-			'label'     => 'Color',
-			'type'      => Controls_Manager::COLOR,
-			'global'    => [
-				'default' => Global_Colors::COLOR_PRIMARY,
-			],
-			'selectors' => [
-				'{{WRAPPER}} .tbt-features-divider:after' => 'background-color: {{VALUE}};',
-			],
-		] );
-
-		$this->add_responsive_control( 'divider_height', [
-			'label'     => 'Height',
-			'type'      => \Elementor\Controls_Manager::NUMBER,
-			'min'       => 0,
-			'max'       => 10,
-			'step'      => 1,
-			'default'   => 1,
-			'selectors' => [
-				'{{WRAPPER}} .tbt-features-divider:after' => 'height: {{SIZE}}px;',
-			],
-		] );
-
-		$this->add_responsive_control( 'divider_horizontal_spacing', [
-			'label'     => 'Spacing',
-			'type'      => Controls_Manager::SLIDER,
-			'range'     => [
-				'px' => [
-					'max' => 100,
-				],
-			],
-			'default'   => [
-				'unit' => 'px',
-				'size' => '20',
-			],
-			'selectors' => [
-				'{{WRAPPER}} .tbt-features-divider:after' => 'left: {{SIZE}}{{UNIT}}; right: {{SIZE}}{{UNIT}};',
-			],
-		] );
-
-		// Feature icon
-		$this->add_control( 'feature_icon_heading', [
-			'label' => '<br><br>Icon',
-			'type'  => Controls_Manager::HEADING,
-		] );
-
-		$this->add_responsive_control( 'icon_size', [
-			'label'     => 'Icon Size',
-			'type'      => Controls_Manager::SLIDER,
-			'range'     => [
-				'px' => [
-					'max' => 50,
-				],
-			],
-			'default'   => [
-				'unit' => 'px',
-				'size' => '24',
-			],
-			'selectors' => [
-				'{{WRAPPER}} .tbt-plan-feature-icon' => 'font-size: {{SIZE}}{{UNIT}};',
-				'{{WRAPPER}} .tbt-plan-feature-icon svg' => 'height: {{SIZE}}{{UNIT}};',
-			],
-		] );
-
-		$this->add_control( 'icon_color', [
-			'label'     => 'Icon Color',
-			'type'      => Controls_Manager::COLOR,
-			'global'    => [
-				'default' => Global_Colors::COLOR_PRIMARY,
-			],
-			'selectors' => [
-				'{{WRAPPER}} .tbt-plan-feature-icon' => 'color: {{VALUE}};',
-				'{{WRAPPER}} .tbt-plan-feature-icon svg' => 'fill: color: {{VALUE}}',
-			],
-		] );
-
 
 		// Feature content
-		$this->add_control( 'feature_text_heading', [
+		$this->add_control( 'additional_info_heading', [
 			'label' => '<br><br>Additional Info',
 			'type'  => Controls_Manager::HEADING,
 		] );
