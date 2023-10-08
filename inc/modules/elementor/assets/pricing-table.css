@@ -2,6 +2,18 @@
    display: grid;
    grid-template-columns: 1fr 26.3% 26.4% 26.3%;
 }
+.tbt-pricing-table-mobile {
+   display: none;
+}
+
+@media(max-width: 767px) {
+   .tbt-pricing-table-desktop {
+      display: none;
+   }
+   .tbt-pricing-table-mobile {
+      display: block;
+   }
+}
 
 .tbt-plan-header {
    display: flex;
@@ -18,6 +30,7 @@
 }
 
 
+
 .tbt-plan-price {
    display: flex;
    flex-direction: column;
@@ -27,7 +40,8 @@
 
 
 
-.tbt-plan-feature {
+.tbt-plan-feature,
+.tbt-plan-features {
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -36,6 +50,8 @@
 .tbt-features-divider {
    grid-column: 1 / -1;
    position: relative;
+   width: 100%;
+   z-index: 2;
 }
 .tbt-features-divider:after {
    content: '';
@@ -43,3 +59,10 @@
    transform: translateY(-50%);
 }
 
+
+.tbt-plan-footer  {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   /* justify-content: flex-end; */
+}
