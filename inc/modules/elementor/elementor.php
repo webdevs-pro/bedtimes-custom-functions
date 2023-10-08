@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class TBT_Elementor {
 
    const MINIMUM_ELEMENTOR_VERSION = '3.15.0';
-   const MINIMUM_PHP_VERSION = '8.0';
+   const MINIMUM_PHP_VERSION = '7.3';
 
    public function __construct() {
       add_action( 'plugins_loaded', array( $this, 'init' ) );
