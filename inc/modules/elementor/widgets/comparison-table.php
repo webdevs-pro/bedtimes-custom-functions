@@ -232,6 +232,7 @@ class TBT_Comparison_Table extends Elementor\Widget_Base {
 					'max' => 500,
 				],
 			],
+			'size_units' => [ 'px', '%', 'custom' ],
 			'default'   => [
 				'unit' => '%',
 				'size' => '34',
