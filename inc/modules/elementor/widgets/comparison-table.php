@@ -221,6 +221,23 @@ class TBT_Comparison_Table extends Elementor\Widget_Base {
 			],
 		] );
 
+		$this->add_responsive_control( 'table_heading_width', [
+			'label'     => 'Width',
+			'type'      => Controls_Manager::SLIDER,
+			'range'     => [
+				'%' => [
+					'max' => 50,
+				],
+			],
+			'default'   => [
+				'unit' => '%',
+				'size' => '34',
+			],
+			'selectors' => [
+				'{{WRAPPER}}' => '--table-heading-width: {{SIZE}}{{UNIT}};',
+			],
+		] );
+
 		$this->add_control( 'table_heading_color', [
 			'label'     => 'Color',
 			'type'      => Controls_Manager::COLOR,
@@ -244,7 +261,7 @@ class TBT_Comparison_Table extends Elementor\Widget_Base {
 		$this->add_control( 'table_heading_background_color', [
 			'label'     => 'Background Color',
 			'type'      => Controls_Manager::COLOR,
-			'default'	=> '#F0EBE1',
+			'default'	=> 'transparent',
 			'selectors' => [
 				'{{WRAPPER}} .tbt-table-heading' => 'background-color: {{VALUE}};',
 			],
@@ -276,7 +293,7 @@ class TBT_Comparison_Table extends Elementor\Widget_Base {
 		$this->add_control( 'item_background_color', [
 			'label'     => 'Background Color',
 			'type'      => Controls_Manager::COLOR,
-			'default'	=> '#f2e1cc',
+			'default'	=> 'transparent',
 			'selectors' => [
 				'{{WRAPPER}} .normal-plan' => 'background-color: {{VALUE}};',
 			],
@@ -313,6 +330,7 @@ class TBT_Comparison_Table extends Elementor\Widget_Base {
 				'{{WRAPPER}}' => '--featured-item-border-width: {{SIZE}}{{UNIT}};',
 			],
 		] );
+
 		$this->add_responsive_control( 'featured_item_border_radius', [
 			'label'     => 'Border Radius',
 			'type'      => Controls_Manager::SLIDER,

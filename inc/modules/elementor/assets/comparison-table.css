@@ -1,6 +1,6 @@
 .tbt-comparison-table-desktop {
    display: grid;
-   grid-template-columns: 1fr 26.3% 26.4% 26.3%;
+   grid-template-columns: var( --table-heading-width ) 1fr 1fr 1fr;
 }
 
 
