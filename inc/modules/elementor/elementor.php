@@ -130,8 +130,10 @@ class TBT_Elementor {
     */
 	public function on_widgets_registered() {
 		require ( TBT_PLUGIN_DIR . '/inc/modules/elementor/widgets/pricing-table.php' );
+		require ( TBT_PLUGIN_DIR . '/inc/modules/elementor/widgets/comparison-table.php' );
 
 		\Elementor\Plugin::instance()->widgets_manager->register( new TBT_Pricing_Table() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new TBT_Comparison_Table() );
 	}
 
 
@@ -154,6 +156,7 @@ class TBT_Elementor {
     */
    public function register_frontend_styles() {
       wp_register_style( 'tbt-pricing-table', TBT_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/pricing-table.css', array(), TBT_PLUGIN_VERSION ); 
+      wp_register_style( 'tbt-comparison-table', TBT_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/comparison-table.css', array(), TBT_PLUGIN_VERSION ); 
    }
 }
 new TBT_Elementor();
