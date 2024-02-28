@@ -283,23 +283,6 @@ class TBT_Comparison_Table extends Elementor\Widget_Base {
 		] );
 
 
-		$this->add_responsive_control( 'items_mobile_spacing', [
-			'label'     => 'Mobile Spacing',
-			'type'      => Controls_Manager::SLIDER,
-			'range'     => [
-				'px' => [
-					'max' => 100,
-				],
-			],
-			'default'   => [
-				'unit' => 'px',
-				'size' => '20',
-			],
-			'selectors' => [
-				'{{WRAPPER}} .tbt-comp-item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-			],
-		] );
-
 		$this->add_control( 'featured_item_style_heading', [
 			'label' => '<br><br>Featured item',
 			'type'  => Controls_Manager::HEADING,
@@ -348,7 +331,7 @@ class TBT_Comparison_Table extends Elementor\Widget_Base {
 		] );
 
 		$this->add_control( 'featured_item_border_color', [
-			'label'     => 'Color',
+			'label'     => 'Border Color',
 			'type'      => Controls_Manager::COLOR,
 			'global'    => [
 				'default' => Global_Colors::COLOR_PRIMARY,
@@ -623,7 +606,7 @@ class TBT_Comparison_Table extends Elementor\Widget_Base {
 
 			<!-- Features -->
 			<?php
-			echo '<div class="tbt-features-divider"></div>';
+			// echo '<div class="tbt-features-divider"></div>';
 			foreach ( $features as $feature ) {
 				// Heading
 				echo '<div class="tbt-table-heading tbt-comp-item-feature-heading">' . $feature['heading'] . '</div>';
